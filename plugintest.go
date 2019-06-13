@@ -16,8 +16,7 @@ func check(err error) {
 func main() {
 	exec_path, err := os.Executable()
 	check(err)
-	plugin_dir := filepath.Join(filepath.Dir(exec_path), "plugins")
-	plugin_paths, err := filepath.Glob(filepath.Join(plugin_dir, "*.so"))
+	plugin_paths, err := filepath.Glob(filepath.Join(filepath.Dir(exec_path), "plugins", "*.so"))
 	check(err)
 	for _, plugin_path := range plugin_paths {
 		fmt.Printf("Loading %s\n", plugin_path)
