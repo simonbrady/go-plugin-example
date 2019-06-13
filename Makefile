@@ -1,18 +1,16 @@
 GO=go
-BUILD=$(GO) build
-
 TARGET=plugintest
 
 all: plugins $(TARGET)
 
 $(TARGET): plugintest.go
-	$(BUILD) -o $@
+	$(GO) build -o $@
 
 plugins:
 	$(MAKE) -C plugins
 
 clean:
 	$(MAKE) -C plugins clean
-	-rm $(TARGET)
+	$(GO) clean
 
 .PHONY: plugins clean

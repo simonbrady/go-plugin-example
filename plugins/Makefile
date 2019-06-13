@@ -1,14 +1,11 @@
 GO=go
-BUILD=$(GO) build
 
-TARGETS=foo.so bar.so
-
-all: $(TARGETS)
+all: foo.so bar.so
 
 clean:
-	-rm $(TARGETS)
+	$(GO) clean
 
 %.so: %.go
-	$(BUILD) -buildmode=plugin $^
+	$(GO) build -buildmode=plugin $<
 
 .PHONY: clean
