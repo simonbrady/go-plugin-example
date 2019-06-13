@@ -1,3 +1,4 @@
 # Go Plugin Example
 
-Minimal example of using [Go plugins](https://golang.org/pkg/plugin/).
+Simple example of using [Go plugins](https://golang.org/pkg/plugin/) that implement
+a common interface defined by the calling program.

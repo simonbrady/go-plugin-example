@@ -6,11 +6,15 @@ all: plugins $(TARGET)
 $(TARGET): plugintest.go
 	$(GO) build -o $@
 
-plugins:
+plugins: hello
 	$(MAKE) -C plugins
 
+hello:
+	$(MAKE) -C hello
+
 clean:
+	$(MAKE) -C hello clean
 	$(MAKE) -C plugins clean
 	$(GO) clean
 
-.PHONY: plugins clean
+.PHONY: plugins hello clean
