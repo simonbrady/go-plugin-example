@@ -25,14 +25,14 @@ func main() {
 		fmt.Printf("Loading %s\n", plugin_path)
 		p, err := plugin.Open(plugin_path)
 		check(err)
-		g, err := p.Lookup("GetHello")
+		// Call factory method to get plugin's implementation of the hello.Hello interface
+		get_hello, err := p.Lookup("GetHello")
 		check(err)
-		plugins = append(plugins, g.(func() hello.Hello)())
+		plugins = append(plugins, get_hello.(func() hello.Hello)())
 	}
+	// Invoke plugins through the common interface
 	for _, p := range plugins {
 		fmt.Println(p.Greeting())
-	}
-	for _, p := range plugins {
-		fmt.Println(p.Farewell())
+		defer fmt.Println(p.Farewell())
 	}
 }
