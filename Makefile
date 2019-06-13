@@ -1,10 +1,9 @@
 GO=go
-TARGET=plugintest
 
-all: plugins $(TARGET)
+all: plugins go-plugin-example
 
-$(TARGET): plugintest.go
-	$(GO) build -o $@
+go-plugin-example: main.go
+	$(GO) build
 
 plugins:
 	$(MAKE) -C plugins
