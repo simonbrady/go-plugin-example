@@ -1,11 +1,12 @@
 GO=go
+PLUGINS=foo bar
 
-all: foo.so bar.so
+all: $(PLUGINS)
+
+$(PLUGINS):
+	$(GO) build -buildmode=plugin ./$@
 
 clean:
 	$(GO) clean
 
-%.so: %.go
-	$(GO) build -buildmode=plugin $<
-
-.PHONY: clean
+.PHONY: $(PLUGINS) clean
