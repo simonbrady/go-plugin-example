@@ -2,7 +2,7 @@ GO=go
 
 all: plugins go-plugin-example
 
-go-plugin-example: main.go
+go-plugin-example:
 	$(GO) build
 
 plugins:
@@ -12,4 +12,4 @@ clean:
 	$(MAKE) -C plugins clean
 	$(GO) clean
 
-.PHONY: plugins clean
+.PHONY: go-plugin-example plugins clean
