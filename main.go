@@ -14,13 +14,13 @@ func check(err error) {
 }
 
 func main() {
-	exec_path, err := os.Executable()
+	execPath, err := os.Executable()
 	check(err)
-	plugin_paths, err := filepath.Glob(filepath.Join(filepath.Dir(exec_path), "plugins", "*.so"))
+	pluginPaths, err := filepath.Glob(filepath.Join(filepath.Dir(execPath), "plugins", "*.so"))
 	check(err)
-	for _, plugin_path := range plugin_paths {
-		fmt.Printf("Loading %s\n", plugin_path)
-		p, err := plugin.Open(plugin_path)
+	for _, pluginPath := range pluginPaths {
+		fmt.Printf("Loading %s\n", pluginPath)
+		p, err := plugin.Open(pluginPath)
 		check(err)
 		hello, err := p.Lookup("Hello")
 		check(err)
