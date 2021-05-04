@@ -5,7 +5,7 @@ import (
 )
 
 // Private type that implements the hello.Hello interface
-type greeter struct {}
+type greeter struct{}
 
 func (greeter) Greeting() string {
 	return "hello from bar"
@@ -16,9 +16,9 @@ func (greeter) Farewell() string {
 }
 
 // Singleton instance of the type
-var greeter_instance greeter
+var greeterInstance greeter
 
-// Factory method returning our implementation of the interface
+// GetHello returns our implementation of the hello.Hello interface
 func GetHello() hello.Hello {
-	return greeter_instance
+	return greeterInstance
 }

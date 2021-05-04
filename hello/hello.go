@@ -1,6 +1,6 @@
 package hello
 
-// Interface implemented by each plugin
+// Hello is the interface implemented by each plugin
 type Hello interface {
 	Greeting() string
 	Farewell() string
