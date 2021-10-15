@@ -6,7 +6,7 @@ go-plugin-example:
 	$(GO) build
 
 lint:
-	golint ./...
+	staticcheck -checks all ./...
 
 plugins:
 	$(MAKE) -C plugins
